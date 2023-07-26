@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class BaseServiceImpl implements IBaseService {
-    @Override
-    public String baseInterface() {
-        return "测试";
-    }
+    // @Override
+    // public String baseInterface() {
+    //     return "测试";
+    // }
 }

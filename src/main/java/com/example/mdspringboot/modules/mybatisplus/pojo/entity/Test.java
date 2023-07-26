@@ -1,7 +1,12 @@
 package com.example.mdspringboot.modules.mybatisplus.pojo.entity;
 
-import com.baomidou.mybatisplus.annotation.*;
+import com.baomidou.mybatisplus.annotation.FieldStrategy;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.example.mdspringboot.modules.baseModule.pojo.entity.BaseEntity;
 import lombok.Data;
+
+import java.io.Serializable;
 
 /**
  * @Author: Administrator
@@ -10,25 +15,14 @@ import lombok.Data;
  */
 @Data
 @TableName("test")
-public class TestMybatisplus {
+public class Test extends BaseEntity implements Serializable {
 
-    @TableId(value = "id",type = IdType.AUTO)
-    private Long id;
+    private static final long serialVersionUID = 1L;
 
     @TableField(value = "user_name")
     private String userName;
 
+    @TableField(value = "pass_word", updateStrategy = FieldStrategy.IGNORED)
     private String passWord;
-
-    private Integer isDeleted;
-
-    // insert的时候触发的时候自动填充
-    @TableField(fill = FieldFill.INSERT)
-    private String createTime;
-
-    // update的时候触发的时候自动填充
-    @TableField(fill = FieldFill.INSERT)
-    private String updateTime;
-
 
 }

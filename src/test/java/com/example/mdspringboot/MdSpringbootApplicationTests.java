@@ -1,17 +1,15 @@
 package com.example.mdspringboot;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import org.junit.jupiter.api.Test;
+import com.example.mdspringboot.modules.mybatisplus.mapper.TestMapper;
+import com.example.mdspringboot.modules.mybatisplus.pojo.entity.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.annotation.Resource;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.List;
-import java.util.Map;
 
 @SpringBootTest
 class MdSpringbootApplicationTests {
@@ -19,7 +17,7 @@ class MdSpringbootApplicationTests {
     @Autowired
     DataSource dataSource;
 
-    @Test
+    @org.junit.jupiter.api.Test
     void testSqlConnetion() throws SQLException {
         System.out.println(dataSource.getClass());
         Connection connection = dataSource.getConnection();
@@ -31,7 +29,7 @@ class MdSpringbootApplicationTests {
      * 验证连接池的配置信息，是否生效
      * @throws Exception
      */
-    @Test
+    @org.junit.jupiter.api.Test
     void testDruidConnetion() throws Exception {
         System.out.println(dataSource.getClass());
         DruidDataSource druidDataSource = (DruidDataSource) dataSource;
@@ -42,8 +40,19 @@ class MdSpringbootApplicationTests {
         connection.close();
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     void contextLoads() {
+    }
+
+
+    // ---------------------mybatisplus-----------------------
+    @Resource
+    private TestMapper mapper;
+
+    @org.junit.jupiter.api.Test
+    public void testMybatisplus(){
+        Test test = mapper.selectById(1);
+        System.out.println(test);
     }
 
 }
