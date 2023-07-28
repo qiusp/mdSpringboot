@@ -8,5 +8,5 @@ package com.example.mdspringboot.modules.baseModule.service;
  */
 public interface IBaseService {
 
-    String baseInterface();
+    // String baseInterface();
 }

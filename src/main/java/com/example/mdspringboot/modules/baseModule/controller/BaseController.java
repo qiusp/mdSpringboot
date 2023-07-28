@@ -20,21 +20,21 @@ import java.util.Map;
 @RestController
 @RequestMapping("/base")
 public class BaseController {
-    @Resource
-    private IBaseService baseService;
-
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
-
-    @GetMapping("/baseInterface")
-    public String test(){
-        return baseService.baseInterface();
-    }
-
-    @RequestMapping("selectAll")
-    public List<Map<String,Object>> selectAll(){
-        String sql = "select * from user";
-        List<Map<String, Object>> maps = jdbcTemplate.queryForList(sql);
-        return maps;
-    }
+    // @Resource
+    // private IBaseService baseService;
+    //
+    // @Autowired
+    // private JdbcTemplate jdbcTemplate;
+    //
+    // @GetMapping("/baseInterface")
+    // public String test(){
+    //     return baseService.baseInterface();
+    // }
+    //
+    // @RequestMapping("selectAll")
+    // public List<Map<String,Object>> selectAll(){
+    //     String sql = "select * from user";
+    //     List<Map<String, Object>> maps = jdbcTemplate.queryForList(sql);
+    //     return maps;
+    // }
 }
