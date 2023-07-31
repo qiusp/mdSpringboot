@@ -1,9 +1,15 @@
 server:
   port: 8080
 
+
 # 其中 [host] 是 MySQL 服务器的地址，[port] 是 MySQL 服务器的端口，[database] 是数据库名称，[username] 是登录数据库的用户名，[password] 是登录数据库的密码。
 #  [driver-class-nam] 驱动,[type]连接池druid
+# 配置 swagger2 knife4j
 spring:
+  mvc:
+    pathmatch:
+      # 配置策略
+      matching-strategy: ant-path-matcher
   datasource:
     username: root
     password: root
