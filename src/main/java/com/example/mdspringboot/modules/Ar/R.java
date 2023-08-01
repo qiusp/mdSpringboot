@@ -1,4 +1,4 @@
-package com.example.mdspringboot.modules.r;
+package com.example.mdspringboot.modules.Ar;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

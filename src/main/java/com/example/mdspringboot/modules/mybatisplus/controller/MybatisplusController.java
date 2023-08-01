@@ -1,7 +1,7 @@
 package com.example.mdspringboot.modules.mybatisplus.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.example.mdspringboot.modules.r.R;
+import com.example.mdspringboot.modules.Ar.R;
 import com.example.mdspringboot.modules.baseModule.pojo.request.Query;
 import com.example.mdspringboot.modules.mybatisplus.pojo.entity.Test;
 import com.example.mdspringboot.modules.mybatisplus.pojo.model.TestModel;
