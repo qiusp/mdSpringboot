@@ -1,4 +1,4 @@
-package com.example.mdspringboot.modules.Cswagger2.controller;
+package com.example.mdspringboot.modules.swagger2.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.example.mdspringboot.modules.baseModule.pojo.request.Query;
