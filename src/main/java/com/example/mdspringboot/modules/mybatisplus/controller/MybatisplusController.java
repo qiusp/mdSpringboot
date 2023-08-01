@@ -1,6 +1,7 @@
 package com.example.mdspringboot.modules.mybatisplus.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.example.mdspringboot.modules.r.R;
 import com.example.mdspringboot.modules.baseModule.pojo.request.Query;
 import com.example.mdspringboot.modules.mybatisplus.pojo.entity.Test;
 import com.example.mdspringboot.modules.mybatisplus.pojo.model.TestModel;
@@ -33,29 +34,29 @@ public class MybatisplusController {
     @PostMapping("/save")
     @ApiOperation(value = "保存", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperationSupport(order = 1)
-    public Object save(@RequestBody TestModel model){
-        return service.save(model);
+    public R<Object> save(@RequestBody TestModel model){
+        return R.data(service.save(model));
     }
 
     @GetMapping("/delete")
     @ApiOperation(value = "删除")
     @ApiOperationSupport(order = 2)
-    public Object delete(@ApiParam(value = "id", required =  true) @RequestParam(value = "id") Long id){
-        return service.delete(id);
+    public R<Object> delete(@ApiParam(value = "id", required =  true) @RequestParam(value = "id") Long id){
+        return R.data(service.delete(id));
     }
 
     @PostMapping("/getList")
     @ApiOperation(value = "获取列表")
     @ApiOperationSupport(order = 3)
-    public List<Test> getList(){
-        return service.getList();
+    public R<List<Test>> getList(){
+        return R.data(service.getList());
     }
 
     @PostMapping("/getPage")
     @ApiOperation(value = "分页", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperationSupport(order = 4)
-    public IPage<TestVO> getPage(@RequestBody Query query){
-        return service.getPage(query);
+    public R<IPage<TestVO>> getPage(@RequestBody Query query){
+        return R.data(service.getPage(query));
     }
 
 }
