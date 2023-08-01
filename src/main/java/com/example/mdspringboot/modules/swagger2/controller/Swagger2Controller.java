@@ -1,4 +1,4 @@
-package com.example.mdspringboot.modules.mybatisplus.controller;
+package com.example.mdspringboot.modules.swagger2.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.example.mdspringboot.modules.baseModule.pojo.request.Query;
@@ -23,9 +23,9 @@ import java.util.List;
  * @Date: 2023/7/7 13:47
  */
 @RestController
-@RequestMapping("/mybatisplus")
-@Api(tags = "mybatisPlus接口测试", value = "mybatisPlus")
-public class MybatisplusController {
+@RequestMapping("/swagger2")
+@Api(tags = "swagger2接口测试", value = "swagger2")
+public class Swagger2Controller {
 
     @Autowired
     private IMybatisplusService service;
