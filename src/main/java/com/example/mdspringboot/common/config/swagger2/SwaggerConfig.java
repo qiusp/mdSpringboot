@@ -34,6 +34,10 @@ public class SwaggerConfig {
     public Docket swagger2Docket() {
         return docket("swagger2", "com.example.mdspringboot.modules.swagger2");
     }
+    @Bean
+    public Docket javaCodeDocket() {
+        return docket("javaCode", "com.example.mdspringboot.modules.javaCode");
+    }
     private Docket docket(String groupName, String packagesPath) {
         Docket docket = new Docket(DocumentationType.SWAGGER_2)
                 //创建该Api的基本信息(这些基本信息会展现在文档页面中)
