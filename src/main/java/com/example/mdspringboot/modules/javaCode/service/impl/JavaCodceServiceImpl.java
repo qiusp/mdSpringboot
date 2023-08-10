@@ -24,48 +24,6 @@ import java.util.Map;
 public class JavaCodceServiceImpl implements IJavaCodeService {
 
     @Override
-    public String tryJava(String javaCode) {
-        try {
-            // 创建一个JavaCompiler对象
-            JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
-            StandardJavaFileManager fileManager = compiler.getStandardFileManager(null, null, null);
-
-            // 创建临时文件，将接收到的代码写入其中
-            // File tempFile = File.createTempFile("TempClass", ".java");
-            File tempFile = new File(Files.createTempDir(), "TestJavaCode.java");
-
-            try (PrintWriter writer = new PrintWriter(tempFile)) {
-                writer.write(javaCode);
-            }
-
-            // 将临时文件编译为类文件
-            Iterable<? extends JavaFileObject> compilationUnits = fileManager.getJavaFileObjectsFromFiles(Collections.singletonList(tempFile));
-            JavaCompiler.CompilationTask task = compiler.getTask(null, fileManager, null, null, null, compilationUnits);
-            task.call();
-
-            // 关闭文件管理器
-            fileManager.close();
-
-            // 使用反射加载并执行编译后的类
-
-            ClassLoader classLoader = ClassLoader.getSystemClassLoader();
-            Class<?> loadedClass = classLoader.loadClass("TestJavaCode");
-            Method method = loadedClass.getMethod("main", String[].class);
-            method.invoke(null, new Object[] { null });
-
-            // ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-            // PrintStream printStream = new PrintStream(outputStream);
-            // PrintStream originalOut = System.out;
-            // 删除临时文件
-            tempFile.delete();
-            return "Code executed successfully!";
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "Code execution failed!";
-        }
-    }
-
-    @Override
     public String tryJavaMap(Map<String, String> map) {
         try {
             // 创建临时文件

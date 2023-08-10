@@ -1,5 +1,8 @@
 package com.example.mdspringboot.testJava;
 
+import com.example.mdspringboot.common.util.DateUtils;
+
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,7 +14,7 @@ import java.util.Map;
 public class test {
     public static void main(String[] args){
         Map<Integer, String> map = new HashMap<>();
-        map.put(1,"one");
+        map.put(1, DateUtils.getTimeAsString(new Date()));
         map.put(2,"two");
         map.put(3,"three");
         for(Integer num : map.keySet()){

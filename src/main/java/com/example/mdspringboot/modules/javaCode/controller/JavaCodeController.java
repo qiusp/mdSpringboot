@@ -30,19 +30,12 @@ public class JavaCodeController {
     @Autowired
     IJavaCodeService javaCodeService;
 
-    // @GetMapping("/tryJava")
-    // @ApiOperationSupport(order = 1)
-    // @ApiOperation(value = "测试")
-    // public R<String> tryJava(@ApiParam(value = "code") @RequestParam String code) {
-    //     return R.data(javaCodeService.tryJava(code));
-    // }
 
     @PostMapping("/tryJavaMap")
     @ApiOperationSupport(order = 2)
     @ApiOperation(value = "OK")
     public R<String> tryJavaMap(@RequestBody Map<String, String> map) {
         String code = map.get("code");
-        // return R.data(javaCodeService.tryJava(code));
         return R.data(javaCodeService.tryJavaMap(map));
     }
 

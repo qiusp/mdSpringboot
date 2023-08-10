@@ -10,6 +10,5 @@ import java.util.Map;
  */
 public interface IJavaCodeService{
 
-    String tryJava(String code);
     String tryJavaMap(Map<String, String> map);
 }
